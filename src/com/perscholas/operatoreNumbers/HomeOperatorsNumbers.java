@@ -3,34 +3,82 @@ package com.perscholas.operatoreNumbers;
 public class HomeOperatorsNumbers {
 
 	public static void main(String[] args) {
-		
+		question2();
 	}
 
 	//  
 
-	/* question1
-	 
-	Write the following integers in binary notation. Do not use any Java functions or online conversion applications to calculate the answer, as this will hinder the learning process and your understanding of the concept. However, you may check your answers using Java methods.
+	// question1
 	
-	1	-------> 1
-	8	-------> 1000
-	33	-------> 100001
-	78	-------> 1001110
-	787	-------> 1100010011
-	33,987	---> 1000010011000011
-	 */
+	//Write the following integers in binary notation. 
+	//Do not use any Java functions or online conversion applications to calculate the answer, 
+	//as this will hinder the learning process and your understanding of the concept.
+	//However, you may check your answers using Java methods.
 	
+		//	1	-------> 1
+		//	8	-------> 1000
+		//	33	-------> 100001
+		//	78	-------> 1001110
+		//	787	-------> 1100010011
+		//	33,987	---> 1000010011000011
+	//----------------------
+ 		 public static void question1(){
+ 
+ 			int nums[] = {1, 8, 33, 78, 787, 33987};
 
-	/* question2
+ 	        for (int x = 0; x < nums.length; x++) {
+ 	            String binary = "";       
+ 	            while (nums[x] > 0) {
+ 	                int rightBit = (int) (nums[x] & 1);
+
+ 	                binary = rightBit + binary;
+
+ 	                nums[x] = nums[x] >> 1;
+ 	            }
+ 	            System.out.println(binary);
+ 	        }
+ 		 }
 	 
-	Convert the following binary numbers to decimal notation. Do not use any Java functions or online conversion applications to calculate the answer, as this will hinder the learning process and your understanding of the concept. However, you may check your answers using Java methods.
-	0010		---------> 2	
-	1001		---------> 9
-	0011 0100	---------> 52
-	0111 0010	---------> 114
-	0010 0001 1111 ------> 543
-	0010 1100 0110 0111	-> 11367
-	 */
+ 
+  
+	// question2
+	
+	//Convert the following binary numbers to decimal notation. 
+	//Do not use any Java functions or online conversion applications to calculate the answer, as this will hinder the learning process and your understanding of the concept. However, you may check your answers using Java methods.
+	 public static void question2() {	 
+		//	0010		---------> 2	
+		//	1001		---------> 9
+		//	0011 0100	---------> 52
+		//	0111 0010	---------> 114
+		//	0010 0001 1111 ------> 543
+		//	0010 1100 0110 0111	-> 11367
+
+		 long[] binNum = new long[6];
+	        binNum[0] = 10L;
+	        binNum[1] = 1001L;
+	        binNum[2] = 110100L;
+	        binNum[3] = 1110010L;
+	        binNum[4] = 1000011111L;
+	        binNum[5] = 10110001100111L;
+
+	        for (int i =0 ; i <binNum.length ; i++) {
+	            long currentBinary = binNum[i];
+
+	            int dNum = 0;
+	            int power = 0;
+	            int remainder = 0;
+
+	            while (currentBinary > 0) {
+	                remainder = (int) (currentBinary % 10);
+	                dNum += remainder * Math.pow(2, power);
+	                power++;
+	                currentBinary = currentBinary / 10;
+	            }
+
+	            System.out.println(dNum);
+	        }
+			 
+	 }
 		
 
 
